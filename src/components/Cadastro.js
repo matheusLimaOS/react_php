@@ -49,7 +49,8 @@ export default function App() {
     useEffect(()=>{
         async function getDados(){
             setIsLoading(true);
-            let response = await axios.get(`http://localhost:8000/Submit.php/listAllUsers`);
+            let response = await axios.get(`http://localhost/Submit.php/listAllUsers`);
+            console.log(response);
             setIsLoading(false);
             let arr = []
             response.data.forEach(res => {
@@ -332,7 +333,7 @@ async function handleSubmit(e,nome,cpf,rg,cep,logradouro,complemento,setor,cidad
     if(id === 0 ){
         try{
             setIsLoading(true);
-            await axios.post(`http://localhost:8000/Submit.php`,{nome,cpf,rg,cep,logradouro,complemento,setor,cidade,telefones,selectedUF});
+            await axios.post(`http://localhost/Submit.php`,{nome,cpf,rg,cep,logradouro,complemento,setor,cidade,telefones,selectedUF});
             setIsLoading(false);
             setChange(true);
         }
@@ -343,7 +344,7 @@ async function handleSubmit(e,nome,cpf,rg,cep,logradouro,complemento,setor,cidad
     else{
         try{
             setIsLoading(true);
-            await axios.put(`http://localhost:8000/Submit.php`,{id,nome,cpf,rg,cep,logradouro,complemento,setor,cidade,telefones,selectedUF});
+            await axios.put(`http://localhost/Submit.php`,{id,nome,cpf,rg,cep,logradouro,complemento,setor,cidade,telefones,selectedUF});
             setIsLoading(false);
             setChange(true);
         }
@@ -362,7 +363,7 @@ async function deletePessoa(e,id,setChange,setIsLoading){
     else{
         try{
             setIsLoading(true);
-            let res = await axios.delete(`http://localhost:8000/Submit.php/`+id);
+            let res = await axios.delete(`http://localhost/Submit.php/`+id);
             setIsLoading(false);
             console.log(res);
             setChange(true);
@@ -376,7 +377,7 @@ async function deletePessoa(e,id,setChange,setIsLoading){
 
 async function handleClick(userId,setNome,setCPF,setRG,setCEP,setLogradouro,setComplemento,setSetor,setCidade,setSelectedUF,setTelefones,setId,setIsLoading){
     setIsLoading(true);
-    let response = await axios.get(`http://localhost:8000/Submit.php?userId=`+userId);
+    let response = await axios.get(`http://localhost/Submit.php?userId=`+userId);
     setIsLoading(false);
     let res = response.data[0];
     

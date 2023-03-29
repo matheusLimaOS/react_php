@@ -16,7 +16,7 @@
         foreach($data['telefones'] as $telefone => $value){
             $arrTelefones[] = new Telefones();
             $arrTelefones[count($arrTelefones)-1]->setTelefone($value['telefone']);
-            $arrTelefones[count($arrTelefones)-1]->setDescricao($value['telefone']);    
+            $arrTelefones[count($arrTelefones)-1]->setDescricao($value['descricao']);    
         };
 
         $pessoa = new Pessoa();
