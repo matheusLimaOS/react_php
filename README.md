@@ -1,4 +1,5 @@
 <h2>Back-End</h2>
+  <p> Para a conexão com o banco insira as informações de <b>host</b>, <b>user</b> e <b>password</b>, no arquivo <b>"ConnectBanco.php"</b>
 <h3>Windows</h3>
 
 <p>
