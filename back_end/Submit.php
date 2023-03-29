@@ -6,7 +6,6 @@
 
     $BD = new ConnectBanco();
     $conn = $BD->conectarBanco();
-    $requestUri = $_SERVER['PATH_INFO'];   
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $request_body = file_get_contents('php://input');
@@ -50,7 +49,7 @@
         http_response_code(200);
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_SERVER['PATH_INFO'] === "/listAllUsers") {
+    if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] === "/listAllUsers") {
         $pessoa = new Pessoa();
 
         $getpessoas = $pessoa->getPessoas($conn);
@@ -59,7 +58,7 @@
         http_response_code(200);
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'GET' && empty($_SERVER['PATH_INFO'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_SERVER['PATH_INFO'])) {
         $pessoa = new Pessoa();
 
         $getpessoa = $pessoa->getPessoa($conn,$_GET['userId']);

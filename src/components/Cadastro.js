@@ -380,7 +380,6 @@ async function handleClick(userId,setNome,setCPF,setRG,setCEP,setLogradouro,setC
     let response = await axios.get(`http://localhost/Submit.php?userId=`+userId);
     setIsLoading(false);
     let res = response.data[0];
-    
     let telefones = JSON.parse(res.telefones);
     let telefonesDescricao = [];
     let tam = 5;
